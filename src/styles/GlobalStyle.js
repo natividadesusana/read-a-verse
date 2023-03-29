@@ -30,7 +30,6 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Lexend Deca', sans-serif;
 		background-color: #E5E5E5;
 		font-family: 'Lato', sans-serif;
-		
 	}
 	ol, ul {
 		list-style: none;

@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Read a Verse App
+This is a simple React app that displays Bible verses randomly. It uses the bible-api.com API to fetch Bible verses.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+https://user-images.githubusercontent.com/95102911/229310650-070c1886-38f5-4a74-b3d5-71ea528756d1.mov
 
-### `npm start`
+#### Demo: https://read-a-verse.vercel.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About the project
+This project was created with the aim of providing a simple app that displays bible verses at random. Some of its main features include:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Displays random verses from the book of Romans.
+- Allows the user to navigate through different pages of the same verse.
+- Shows a loading indicator while fetching data.
+- Responsive design.
 
-### `npm test`
+## Technologies
+Some of the technologies used in this project include:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- axios: used for making HTTP requests to the API.
+- react: used for building the user interface.
+- styled-components: used for styling the components.
 
-### `npm run build`
+## How to run the project
+To run the project on your local machine, follow the steps below:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+        git clone https://github.com/username/repo.git
+        
+2. Navigate to the project directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        cd repo
+        
+3. Install the dependencies:
 
-### `npm run eject`
+        npm install
+        
+4. Run the app:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    npm start
+    
+## Usage
+Once the app is running, the user can click on the "Click Me" button to display a random verse from the book of Romans. The user can then navigate through different pages of the same verse using the pagination buttons.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## How to contribute
+Contributions are always welcome! If you find any bugs or have suggestions for new features, feel free to open an issue or pull request.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was created with Create React App. For more information on running, testing, building, and deploying this project, see the Create React App documentation.

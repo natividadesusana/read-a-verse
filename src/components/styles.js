@@ -42,7 +42,7 @@ export const Modal = styled.div`
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,10 +108,10 @@ export const PaginationContainer = styled.div`
 export const Pagination = styled.button`
   padding: 10px;
   cursor: pointer;
-  border: 1px solid gainsboro;
+  border: none;
   background-color: transparent;
   color: gray;
-  font-weight: 600;
+  font-weight: 400;
   width: 40px;
   text-align: center;
 

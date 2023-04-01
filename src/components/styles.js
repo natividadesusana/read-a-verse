@@ -119,3 +119,7 @@ export const Pagination = styled.button`
     background-color: gainsboro;
   }
 `;
+
+export const Loading = styled.img`
+  height: 30vh;
+`;

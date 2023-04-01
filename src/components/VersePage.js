@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import PaginationButtons from "./PaginationButtons";
+import loading from "../assets/loading.gif";
+import { Loading } from "./styles";
 import {
   Container,
   Title,
@@ -20,10 +22,11 @@ export default function VersePage() {
   const [currentVerseId, setCurrentVerseId] = useState("romans+12:1-2");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = (verseId, totalPages) => {
     const apiUrl = `https://bible-api.com/${verseId}`;
-
+    setIsLoading(true); // mostrar o gif de loading
     axios
       .get(apiUrl)
       .then((response) => {
@@ -31,9 +34,11 @@ export default function VersePage() {
         setCurrentVerseId(verseId);
         setShowModal(true);
         setTotalPages(totalPages);
+        setIsLoading(false); // esconder o gif de loading
       })
       .catch((error) => {
         alert(error.response.data);
+        setIsLoading(false); // esconder o gif de loading em caso de erro
       });
   };
   const handlePageClick = (page) => {
@@ -44,17 +49,25 @@ export default function VersePage() {
 
   const handleRandomClick = () => {
     const book = "romans";
-    const chapter = Math.floor(Math.random() * 16) + 1;
-    const verse = Math.floor(Math.random() * 25) + 1;
+    const maxChapters = 16;
+    const maxVerses = 25;
+    const chapter = Math.floor(Math.random() * maxChapters) + 1;
+    const verse = Math.floor(Math.random() * maxVerses) + 1;
     const verseId = `${book}+${chapter}:${verse}`;
-    const totalPages = 25;
+    const totalPages = maxVerses;
     handleClick(verseId, totalPages);
   };
 
   return (
     <Container>
-      <Title>Read a Verse</Title>
-      <Button onClick={handleRandomClick}>Click Me</Button>
+      {isLoading ? (
+        <Loading src={loading} alt="loading" />
+      ) : (
+        <>
+          <Title>Read a Verse</Title>
+          <Button onClick={handleRandomClick}>Click Me</Button>
+        </>
+      )}
       {showModal && verseData.text && (
         <Modal>
           <ModalContent>

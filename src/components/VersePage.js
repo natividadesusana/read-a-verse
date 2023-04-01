@@ -26,7 +26,7 @@ export default function VersePage() {
 
   const handleClick = (verseId, totalPages) => {
     const apiUrl = `https://bible-api.com/${verseId}`;
-    setIsLoading(true); 
+    setIsLoading(true);
     axios
       .get(apiUrl)
       .then((response) => {
@@ -34,7 +34,7 @@ export default function VersePage() {
         setCurrentVerseId(verseId);
         setShowModal(true);
         setTotalPages(totalPages);
-        setIsLoading(false); 
+        setIsLoading(false);
       })
       .catch((error) => {
         alert(error.response.data);
@@ -72,7 +72,7 @@ export default function VersePage() {
       </>
     );
   }
-  
+
   return (
     <Container>
       {renderContent()}
@@ -102,4 +102,4 @@ export default function VersePage() {
       )}
     </Container>
   );
-      }  
+}

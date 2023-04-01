@@ -1,13 +1,24 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+`;
 
 export const Container = styled.div`
   box-sizing: border-box;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: linear-gradient(to bottom, #1b2735 0%, #090a0f 65%, #2f4f4f 100%);
+  background-size: cover;
+  animation: ${gradientAnimation} 1s ease-in-out infinite alternate;
 `;
 
 export const Title = styled.h1`

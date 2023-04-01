@@ -26,7 +26,7 @@ export default function VersePage() {
 
   const handleClick = (verseId, totalPages) => {
     const apiUrl = `https://bible-api.com/${verseId}`;
-    setIsLoading(true); // mostrar o gif de loading
+    setIsLoading(true); 
     axios
       .get(apiUrl)
       .then((response) => {
@@ -34,11 +34,11 @@ export default function VersePage() {
         setCurrentVerseId(verseId);
         setShowModal(true);
         setTotalPages(totalPages);
-        setIsLoading(false); // esconder o gif de loading
+        setIsLoading(false); 
       })
       .catch((error) => {
         alert(error.response.data);
-        setIsLoading(false); // esconder o gif de loading em caso de erro
+        setIsLoading(false);
       });
   };
   const handlePageClick = (page) => {
@@ -58,16 +58,24 @@ export default function VersePage() {
     handleClick(verseId, totalPages);
   };
 
+  function renderContent() {
+    if (showModal) {
+      return null;
+    }
+    if (isLoading) {
+      return <Loading src={loading} alt="loading" />;
+    }
+    return (
+      <>
+        <Title>Read a Verse</Title>
+        <Button onClick={handleRandomClick}>Click Me</Button>
+      </>
+    );
+  }
+  
   return (
     <Container>
-      {isLoading ? (
-        <Loading src={loading} alt="loading" />
-      ) : (
-        <>
-          <Title>Read a Verse</Title>
-          <Button onClick={handleRandomClick}>Click Me</Button>
-        </>
-      )}
+      {renderContent()}
       {showModal && verseData.text && (
         <Modal>
           <ModalContent>
@@ -94,4 +102,4 @@ export default function VersePage() {
       )}
     </Container>
   );
-}
+      }  

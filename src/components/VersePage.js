@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import PaginationButtons from "./PaginationButtons";
 import {
   Container,
   Title,
@@ -17,8 +18,10 @@ export default function VersePage() {
   const [showModal, setShowModal] = useState(false);
   const [verseData, setVerseData] = useState({});
   const [currentVerseId, setCurrentVerseId] = useState("romans+12:1-2");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const handleClick = (verseId) => {
+  const handleClick = (verseId, totalPages) => {
     const apiUrl = `https://bible-api.com/${verseId}`;
 
     axios
@@ -27,10 +30,16 @@ export default function VersePage() {
         setVerseData(response.data);
         setCurrentVerseId(verseId);
         setShowModal(true);
+        setTotalPages(totalPages);
       })
       .catch((error) => {
         alert(error.response.data);
       });
+  };
+  const handlePageClick = (page) => {
+    setCurrentPage(page);
+    const verseId = `${currentVerseId.slice(0, -1)}${page}`;
+    handleClick(verseId, totalPages);
   };
 
   const handleRandomClick = () => {
@@ -38,8 +47,8 @@ export default function VersePage() {
     const chapter = Math.floor(Math.random() * 16) + 1;
     const verse = Math.floor(Math.random() * 25) + 1;
     const verseId = `${book}+${chapter}:${verse}`;
-
-    handleClick(verseId);
+    const totalPages = 25;
+    handleClick(verseId, totalPages);
   };
 
   return (
@@ -55,19 +64,15 @@ export default function VersePage() {
             <ModalTitle>{verseData.reference}</ModalTitle>
             <ModalText>{verseData.text}</ModalText>
             <PaginationContainer>
-              <Pagination onClick={() => handleClick(currentVerseId)}>
+              <Pagination onClick={() => handlePageClick(currentPage - 1)}>
                 <ion-icon name="play-back-outline"></ion-icon>
               </Pagination>
-              <Pagination onClick={() => handleClick(currentVerseId)}>
-                1
-              </Pagination>
-              <Pagination onClick={() => handleClick(currentVerseId)}>
-                2
-              </Pagination>
-              <Pagination onClick={() => handleClick(currentVerseId)}>
-                3
-              </Pagination>
-              <Pagination onClick={() => handleClick(currentVerseId)}>
+              <PaginationButtons
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageClick={handlePageClick}
+              />
+              <Pagination onClick={() => handlePageClick(currentPage + 1)}>
                 <ion-icon name="play-forward-outline"></ion-icon>
               </Pagination>
             </PaginationContainer>

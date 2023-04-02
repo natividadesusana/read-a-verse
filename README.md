@@ -7,7 +7,7 @@ https://user-images.githubusercontent.com/95102911/229310650-070c1886-38f5-4a74-
 
 #### Demo: https://read-a-verse.vercel.app/
 
-## About the project
+## ℹ️ About the project
 This project was created with the aim of providing a simple app that displays bible verses at random. Some of its main features include:
 
 - Displays random verses from the book of Romans.
@@ -15,14 +15,14 @@ This project was created with the aim of providing a simple app that displays bi
 - Shows a loading indicator while fetching data.
 - Responsive design.
 
-## Technologies
+## 🛠️ Technologies
 Some of the technologies used in this project include:
 
 - axios: used for making HTTP requests to the API.
 - react: used for building the user interface.
 - styled-components: used for styling the components.
 
-## How to run the project
+## 🚀 How to run the project
 To run the project on your local machine, follow the steps below:
 
 1. Clone the repository:
@@ -41,7 +41,7 @@ To run the project on your local machine, follow the steps below:
 
     npm start
     
-## Usage
+## 🖇 Usage
 Once the app is running, the user can click on the "Click Me" button to display a random verse from the book of Romans. The user can then navigate through different pages of the same verse using the pagination buttons.
 
 ## How to contribute

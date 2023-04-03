@@ -19,7 +19,7 @@ import {
 export default function VersePage() {
   const [showModal, setShowModal] = useState(false);
   const [verseData, setVerseData] = useState({});
-  const [currentVerseId, setCurrentVerseId] = useState("romans+12:1-2");
+  const [currentVerseId, setCurrentVerseId] = useState("psalms+1:1-2");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,21 +36,31 @@ export default function VersePage() {
         setTotalPages(totalPages);
         setIsLoading(false);
       })
-      .catch((error) => {
-        alert(error.response.data);
+      .catch(() => {
+        alert("Error! Please try again ...");
         setIsLoading(false);
       });
   };
+
   const handlePageClick = (page) => {
-    setCurrentPage(page);
-    const verseId = `${currentVerseId.slice(0, -1)}${page}`;
-    handleClick(verseId, totalPages);
+    if (page <= totalPages) {
+      setCurrentPage(page);
+      const verseId = `${currentVerseId.slice(0, -1)}${page}`;
+      handleClick(verseId, totalPages);
+    } else {
+      const currentChapter = parseInt(
+        currentVerseId.split(":")[0].split("+")[1]
+      );
+      const nextChapter = currentChapter + 1;
+      const verseId = `psalms+${nextChapter}:1`;
+      handleClick(verseId, 1);
+    }
   };
 
   const handleRandomClick = () => {
-    const book = "romans";
-    const maxChapters = 16;
-    const maxVerses = 25;
+    const book = "psalms";
+    const maxChapters = 50;
+    const maxVerses = 20;
     const chapter = Math.floor(Math.random() * maxChapters) + 1;
     const verse = Math.floor(Math.random() * maxVerses) + 1;
     const verseId = `${book}+${chapter}:${verse}`;

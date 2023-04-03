@@ -73,6 +73,7 @@ export const ModalTitle = styled.h2`
   font-size: 24px;
   font-weight: 300;
   margin: 0;
+  margin-top: 15px;
   margin-bottom: 24px;
   color: black;
 `;
@@ -106,6 +107,7 @@ export const PaginationContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   margin-top: 1rem;
   color: #8a4b08;
 

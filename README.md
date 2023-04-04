@@ -10,7 +10,7 @@ https://user-images.githubusercontent.com/95102911/229310650-070c1886-38f5-4a74-
 ## ℹ️ About the project
 This project was created with the aim of providing a simple app that displays bible verses at random. Some of its main features include:
 
-- Displays random verses from the book of Romans.
+- Displays random verses from the book of Psalms.
 - Allows the user to navigate through different pages of the same verse.
 - Shows a loading indicator while fetching data.
 - Responsive design.
@@ -42,7 +42,7 @@ To run the project on your local machine, follow the steps below:
     npm start
     
 ## 🖇 Usage
-Once the app is running, the user can click on the "Click Me" button to display a random verse from the book of Romans. The user can then navigate through different pages of the same verse using the pagination buttons.
+Once the app is running, the user can click on the "Click Me" button to display a random verse from the book of Psalms. The user can then navigate through different pages of the same verse using the pagination buttons.
 
 ## How to contribute
 Contributions are always welcome! If you find any bugs or have suggestions for new features, feel free to open an issue or pull request.
